@@ -55,9 +55,10 @@ class API(object):
             print(e)
             raise e
 
-        content = ""
         if len(response.content) > 0:
             content = json.loads(response.content.decode("utf-8"))
+        else:
+            content = response.status_code
 
         return content
 
